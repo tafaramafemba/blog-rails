@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'Teacher from Mexico.')
 
-  subject {Post.new(user:, title: 'Hello', text: 'This is my first post')}
+  subject { Post.new(user:, title: 'Hello', text: 'This is my first post') }
 
-  before {subject.save}
+  before { subject.save }
 
   it 'title should be present' do
     subject.title = nil
@@ -43,7 +42,7 @@ RSpec.describe Post, type: :model do
     expect(subject.recent_comments.size).to eq(5)
   end
 
-  it  'Method should return the updated posts_counter' do
+  it 'Method should return the updated posts_counter' do
     counter = user.postscounter
     subject.save
     expect(user.postscounter).to eq(counter + 1)

@@ -2,9 +2,9 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe User, type: :model do
-  subject {User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'Teacher from Mexico.')}
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'Teacher from Mexico.') }
 
-  before {subject.save}
+  before { subject.save }
 
   it 'name should be present' do
     subject.name = nil
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it  'Method should return the 3 most recent posts' do
+  it 'Method should return the 3 most recent posts' do
     3.times { Post.create(user: subject, title: 'Post title', text: 'Post text') }
     expect(subject.recent_posts.size).to eq(3)
   end
