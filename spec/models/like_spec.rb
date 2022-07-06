@@ -12,6 +12,6 @@ RSpec.describe Like, type: :model do
     subject { Like.new(user:, post:) }
     counter = post.likes_counter
     subject.save
-    expect(post.likes_counter).to eq(counter -1)
+    expect(post.likes_counter).to eq(counter + 1)
   end
 end
