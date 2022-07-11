@@ -1,24 +1,41 @@
-# README
+# Blog_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project we will be using Ruby on Rails to implement a blog website using full-stack technologies.
 
-Things you may want to cover:
 
-* Ruby version
+## Setup
+1) Go to your terminal and navigate to where you store project repositories
+2) Run the command `$git clone git@github.com:tafaramafemba/blog_rails.git`
 
-* System dependencies
+## Run
+1) Navigate to the source folder in your terminal
+2) Open in your editor of choice
+3) run `bundle install`
+4) run `rails db:create`
 
-* Configuration
+## Testing
+run the following after cloning the repository
+- `rspec`
 
-* Database creation
+## Authors
 
-* Database initialization
+👤 **Tafara Mafemba**
 
-* How to run the test suite
+- GitHub: [@tafaramafemba](https://github.com/tafaramafemba)
+- LinkedIn: [Tafara Mafemba](https://www.linkedin.com/in/tafara-mafemba)
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🤝 Contributing
 
-* Deployment instructions
+Contributions, issues, and feature requests are welcome!
 
-* ...
+
+## Show your support
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse for their RUBY modules which made this a great project for practicing my knowledge of the Ruby basics
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
