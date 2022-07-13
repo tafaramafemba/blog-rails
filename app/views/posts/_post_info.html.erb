@@ -1,0 +1,11 @@
+<div class="flex-container align-justify">
+        <div>
+            <h4><%= post.title %></h4>
+            <p>by <%= post.user_id %></p>
+        </div>
+        <ul class="menu simple align-right">
+            <li>Comments: <%= post.comments_counter || 0 %></li>
+            <li>Likes: <%= post.likes_counter || 0 %></li>
+        </ul>
+    </div>
+    <p><%= post.text %></p>

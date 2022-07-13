@@ -1,0 +1,8 @@
+<div class="callout">
+  <h4><%= link_to post.title, user_post_path(post.user_id, post) %></h4>
+  <p><%= post.text %></p>
+  <ul class="menu simple align-right">
+      <li>Comments: <%= post.comments_counter || 0 %></li>
+      <li>Likes: <%= post.likes_counter || 0 %></li>
+  </ul>
+</div>
