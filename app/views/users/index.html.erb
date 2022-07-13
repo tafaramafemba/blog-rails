@@ -1,1 +1,15 @@
 <h1>Here is a list of all users</h1>
+
+<div class="user-list">
+  <% @users.each do |user| %>
+    <div class="user">
+      <div class="user--avatar">
+        <%=image_tag("http://identicon.net//#{user.id}.png", class: 'user--avatar', alt: 'user picture')%>
+      </div>
+      <div class="user--name">
+        <%=link_to user.name, user_path(user), class: 'name'%>
+        <%=link_to "Number of posts: #{user.postscounter}",          user_posts_path(user), class: 'posts-num'%>
+      </div>
+    </div>
+  <% end %>
+</div>
