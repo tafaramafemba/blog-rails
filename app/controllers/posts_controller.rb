@@ -12,12 +12,12 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = current_user.posts.new(post_params)
     @post.comments_counter = 0
     @post.likes_counter = 0
-  
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_post_path(@post.author_id, @post), notice: 'Post was successfully created.' }
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       end
     end
   end
-  
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
@@ -45,4 +45,3 @@ class PostsController < ApplicationController
     redirect_to user_posts_path(current_user)
   end
 end
-
