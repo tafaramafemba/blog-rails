@@ -2,7 +2,8 @@
   <h4><%= link_to post.title, user_post_path(post.user_id, post) %></h4>
   <p><%= post.text %></p>
   <ul class="menu simple align-right">
-      <li>Comments: <%= post.comments_counter || 0 %></li>
-      <li>Likes: <%= post.likes_counter || 0 %></li>
+      <li>Comments: <%= post.comments_counter%></li>
+      <li>Likes: <%= post.likes_counter%></li>
   </ul>
+    <%= render partial: "comments/comment", locals: { comments: post.recent_comments } %>
 </div>

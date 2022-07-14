@@ -1,11 +1,29 @@
-<div class="flex-container align-justify">
+<div class="callout post">
+    <div class="flex-container align-justify">
         <div>
             <h4><%= post.title %></h4>
             <p>by <%= post.user_id %></p>
         </div>
         <ul class="menu simple align-right">
-            <li>Comments: <%= post.comments_counter || 0 %></li>
-            <li>Likes: <%= post.likes_counter || 0 %></li>
+            <li>Comments: <%= post.comments_counter%></li>
+            <li>Likes: <%= post.likes_counter%></li>
         </ul>
     </div>
     <p><%= post.text %></p>
+
+        <ul class="menu simple add align-right">
+        <li>
+            <%=form_with :url => user_comments_path(@post.user_id, @post), :method => :post, :class => 'new-comment' do |f|%>
+      <%=f.text_field :text, placeholder: 'Comment', class: 'comment-text'%>
+      <%=f.submit 'Comment', class: 'comment-submit'%>
+    <%end%>
+        </li>
+        <li>
+            <%= button_to user_like_path(@post.user_id, @post), method: :post do %>
+                <i class="heart outline icon"></i>
+                <span>Like</span>
+            <% end %>
+        </li>
+    </ul>
+    <%= render partial: "comments/comment", locals: { comments: post.comments } %>
+</div>

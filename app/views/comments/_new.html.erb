@@ -1,0 +1,21 @@
+<div class="callout large banner">
+  <div class="grid-x grid-padding-x">
+    <%= link_to "< Back", user_post_path(@comment.user_id, @comment.post_id), class: "cell small-4" %>
+    <div class="cell small-4 text-center">New Comment</div>
+    <div class="cell small-4 text-right"></div>
+  </div>
+</div>
+
+<%= form_with model: @comment, url: user_post_comments_path do |form| %>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x flex-container flex-dir-column">
+        <div class="medium-12 cell">
+            <p class="text-lg">Comment:</p>
+            <%= form.text_area :text, placeholder: "Write post", rows: "8", required: true %>
+        </div>
+        <div class="medium-12 cell text-center">
+            <%= form.submit "Submit Comment", class: 'button' %>
+        </div>
+    </div>
+  </div>
+<% end %>

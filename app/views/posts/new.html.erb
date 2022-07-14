@@ -1,0 +1,18 @@
+<h1>Create New Post</h1>
+<%= form_with model: @post, url: user_posts_path do |form| %>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x flex-container flex-dir-column">
+        <div class="medium-8 cell">
+            <p class="text-lg">Title:</p>
+            <%= form.text_field :title, placeholder: "Post title", required: true %>
+        </div>
+        <div class="medium-12 cell">
+            <p class="text-lg">Text:</p>
+            <%= form.text_area :text, placeholder: "Write post", rows: "8", required: true %>
+        </div>
+        <div class="medium-12 cell text-center">
+            <%= form.submit "Submit Post", class: 'button' %>
+        </div>
+    </div>
+  </div>
+<% end %>
