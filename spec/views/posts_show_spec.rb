@@ -42,6 +42,14 @@ RSpec.describe 'Show User', type: :feature do
       expect(page).to have_content('Comments: 1')
     end
 
+    it 'shows username of each commenter' do
+      expect(page).to have_content('Thomas')
+    end
+
+    it 'shows all the comments' do
+      expect(page).to have_content('This is a comment for a post')
+    end
+
     it 'shows number of likes' do
       expect(page).to have_content('Likes: 1')
     end
