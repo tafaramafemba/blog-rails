@@ -16,15 +16,30 @@ RSpec.describe 'Show User', type: :feature do
       @post2 = @user2.posts.create!(title: 'Last post', text: 'this is my last post', 
         comments_counter: 0, likes_counter: 0)
 
-    @comment = @post.comments.create!(text: 'This is a comment for a post', user_id: @user.id)
-    @comment2 = @post2.comments.create!(text: 'This is a comment for the second user', user_id: @user2.id)
+      @comment = @post.comments.create!(text: 'This is a comment for a post', user_id: @user.id)
+      @comment2 = @post2.comments.create!(text: 'This is a comment for the second user', user_id: @user2.id)
 
 
-    @like = @post.likes.create!(user_id: @user.id)
-    @like2 = @post2.likes.create!(user_id: @user2.id)
+      @like = @post.likes.create!(user_id: @user.id)
+      @like2 = @post2.likes.create!(user_id: @user2.id)
 
-    visit user_posts_path(@user)
+      visit user_posts_path(@user)
     end
 
+    it 'shows the post title' do
+      expect(page).to have_content('My post')
+    end
+
+    it 'shows the username' do
+      expect(page).to have_content('Thomas')
+    end
+
+    it 'shows number of comments' do
+      expect(page).to have_content('Comments: 1')
+    end
+
+    it 'shows number of likes' do
+      expect(page).to have_content('Likes: 1')
+    end
   end
 end
