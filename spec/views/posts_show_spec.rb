@@ -34,6 +34,10 @@ RSpec.describe 'Show User', type: :feature do
       expect(page).to have_content('Thomas')
     end
 
+    it 'shows the post body' do
+      expect(page).to have_content('this is my first post')
+    end
+
     it 'shows number of comments' do
       expect(page).to have_content('Comments: 1')
     end
