@@ -1,0 +1,19 @@
+<div class="comments">
+  <hr>
+  <% if comments.any? %>
+    <% comments.includes(:user).each do |comment| %>
+      <div class="grid-x">
+        <div class="cell small-11 flex-container comment-group">
+          <p>
+            <b><%= comment.user.name %></b>
+          </p>
+          <p class="comment">
+            <%= comment.text %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="comment">No comments to display.</p>
+  <% end %>
+</div>
