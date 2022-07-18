@@ -9,7 +9,7 @@ RSpec.describe 'Show User', type: :feature do
       @user2 = User.create!(name: 'James', photo: 'https://unsplash.com/photos/F_0BxGuVvo', 
         bio: 'Teacher from Ghana.', postscounter: 0)
 
-    visit users_path
+      visit users_path
     end
 
     it 'shows the username of all other users' do
