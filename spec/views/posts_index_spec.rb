@@ -1,17 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Show User', type: :feature do
-
   describe 'Post' do
     before(:each) do
-      @user = User.create!(name: 'John', photo: 'https://unsplash.com/photos/F_0BxGuVvo', 
-        bio: 'Teacher from USA.', postscounter: 0)
+      @user = User.create!(name: 'John', photo: 'https://unsplash.com/photos/F_0BxGuVvo',
+                           bio: 'Teacher from USA.', postscounter: 0)
 
-      @user2 = User.create!(name: 'James', photo: 'https://unsplash.com/photos/F_0BxGuVvo', 
-        bio: 'Teacher from Ghana.', postscounter: 0)
+      @user2 = User.create!(name: 'James', photo: 'https://unsplash.com/photos/F_0BxGuVvo',
+                            bio: 'Teacher from Ghana.', postscounter: 0)
 
-      @post = @user.posts.create!(title: 'My post', text: 'this is my first post', 
-        comments_counter: 0, likes_counter: 0)
+      @post = @user.posts.create!(title: 'My post', text: 'this is my first post')
 
       @comment = @post.comments.create!(text: 'This is a comment for a post', user_id: @user.id)
 
@@ -57,6 +55,5 @@ RSpec.describe 'Show User', type: :feature do
       click_link 'My post'
       expect(page).to have_current_path user_post_path(@post.user_id, @post)
     end
-
   end
 end

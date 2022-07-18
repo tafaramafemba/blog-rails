@@ -3,14 +3,13 @@ require 'rails_helper'
 RSpec.describe 'Show User', type: :feature do
   describe 'User' do
     before(:each) do
-      @user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo', 
-        bio: 'Teacher from Mexico.', postscounter: 0)
+      @user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo',
+                           bio: 'Teacher from Mexico.', postscounter: 0)
 
       @post1 = @user.posts.create!(title: 'Studying at Microverse',
-        text: 'My experience', comments_counter: 0, likes_counter: 0)
+                                   text: 'My experience', comments_counter: 0, likes_counter: 0)
 
       visit user_path(@user.id)
-      
     end
     it 'shows photo' do
       image = page.all('img')
