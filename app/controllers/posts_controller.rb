@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    @posts = @user.posts
   end
 
   def show
@@ -15,8 +15,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @post.comments_counter = 0
-    @post.likes_counter = 0
+    @post.comments_counter
+    @post.likes_counter
 
     respond_to do |format|
       if @post.save

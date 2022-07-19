@@ -24,6 +24,12 @@ run the following after cloning the repository
 - GitHub: [@tafaramafemba](https://github.com/tafaramafemba)
 - LinkedIn: [Tafara Mafemba](https://www.linkedin.com/in/tafara-mafemba)
 
+👤 **Kemigabo Catherine**
+
+- GitHub: [@githubhandle](https://github.com/kemigabocatherine)
+- Twitter: [@twitterhandle](https://twitter.com/home?lang=en)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kemigabocatherine/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
