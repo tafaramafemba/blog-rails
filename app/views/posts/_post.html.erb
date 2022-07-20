@@ -5,6 +5,10 @@
       <li>Comments: <%= post.comments_counter%></li>
       <li>Likes: <%= post.likes_counter%></li>
   </ul>
-  <%= button_to "Delete", user_post_path(post.user_id, post), method: :delete %>
+  
+   <% if can? :destroy, post %>
+      <%= button_to "Delete", user_post_path(post.user_id, post), method: :delete %>
+    <% end %>
+ 
     <%= render partial: "comments/comment", locals: { comments: post.recent_comments } %>
 </div>

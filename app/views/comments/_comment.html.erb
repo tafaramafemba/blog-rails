@@ -12,7 +12,9 @@
           </p>
         </div>
       </div>
+          <% if can? :destroy, comment %>
         <%= button_to "Delete", user_comment_path(comment.post_id, comment), method: :delete %>
+    <% end %>
     <% end %>
   <% else %>
     <p class="comment">No comments to display.</p>
