@@ -20,9 +20,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_post_path(@post.user_id, @post), notice: 'Post was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to user_posts_path(current_user, @post), notice: 'Post was successfully created.' }
       end
     end
   end
@@ -46,20 +44,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
       format.html { redirect_to user_posts_path, notice: 'Post was successfully removed.' }
-    end
-  end
-
-  def destroy_comment
-    @comment = Comment.find(params[:id])
-    @post = Post.find_by(id: @comment.post_id)
-    @comment.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to user_post_path(current_user.id, @post.id), notice: 'Comment was successfully deleted.' }
     end
   end
 end

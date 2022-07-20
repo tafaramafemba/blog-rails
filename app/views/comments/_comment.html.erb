@@ -2,8 +2,8 @@
   <hr>
   <% if comments.any? %>
     <% comments.includes(:user).each do |comment| %>
-      <div class="grid-x">
-        <div class="cell small-11 flex-container comment-group">
+      <div>
+        <div>
           <p>
             <b><%= comment.user.name %></b>
           </p>
@@ -12,6 +12,7 @@
           </p>
         </div>
       </div>
+        <%= button_to "Delete", user_comment_path(comment.post_id, comment), method: :delete %>
     <% end %>
   <% else %>
     <p class="comment">No comments to display.</p>
