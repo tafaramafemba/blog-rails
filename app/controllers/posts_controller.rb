@@ -41,6 +41,7 @@ class PostsController < ApplicationController
     p params
     @comment = Comment.new(user: current_user, post: @post, text: params[:text])
     @comment.save
+    authorize! :create, @comment
     redirect_to user_posts_path(current_user)
   end
 

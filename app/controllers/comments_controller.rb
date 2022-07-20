@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def destroy
     @comment = Comment.find(params[:id])
     @post = Post.find_by(id: @comment.post_id)
