@@ -2,7 +2,7 @@ module Api
   module V1
     class CommentsController < ApplicationController
         def index
-          @comments = Comment.where(post_id: params[:post_id]).where(author_id: params[:user_id]).order(:created_at)
+          @comments = Comment.where(post_id: params[:post_id]).where(user_id: params[:user_id]).order(:created_at)
           render json: {
             success: true, message: "Successfully loaded comments", data: { comments: @comments }
           }
@@ -10,7 +10,7 @@ module Api
 
         def create
           @post = Post.find(params[:post_id])
-          @comment = @post.comments.create(comment_params, author_id: params[:user_id])
+          @comment = @post.comments.create(comment_params, user_id: params[:user_id])
 
           if @comment.save
             render json: { success: true, message: 'Successfully created comment', data: { comment: @comment } }, status: :created
