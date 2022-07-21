@@ -20,9 +20,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_post_path(@post.author_id, @post), notice: 'Post was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to user_posts_path(current_user, @post), notice: 'Post was successfully created.' }
       end
     end
   end
@@ -42,6 +40,20 @@ class PostsController < ApplicationController
     p params
     @comment = Comment.new(user: current_user, post: @post, text: params[:text])
     @comment.save
+    authorize! :create, @comment
     redirect_to user_posts_path(current_user)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @comment = @post.comments.where(post_id: @post.id)
+    @like = @post.likes.where(post_id: @post.id)
+    @comment.each(&:destroy)
+    @like.each(&:destroy)
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to user_posts_path, notice: 'Post was successfully removed.' }
+    end
   end
 end

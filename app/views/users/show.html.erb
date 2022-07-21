@@ -19,6 +19,13 @@
     <p class='count'>Comments <%=post.comments_counter%>, Likes <%=post.likes_counter%></p>
   </div>
 <%end%>
+<div class="cell small-4 text-right">
+    <% if @user == current_user %>
+      <%= link_to new_user_post_path(@user) do %>
+          <span>New Post</span>
+      <% end %>
+    <% end %>
+    </div>
 <div class="btn">
   <%=link_to "See all posts", user_posts_path(@user), class: 'show-posts'%>
 </div>
