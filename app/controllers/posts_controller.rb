@@ -46,14 +46,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @comment = @post.comments.where(post_id: @post.id) 
+    @comment = @post.comments.where(post_id: @post.id)
     @like = @post.likes.where(post_id: @post.id)
-    @comment.each do |comment|
-    comment.destroy
-    end
-    @like.each do |like|
-      like.destroy
-      end
+    @comment.each(&:destroy)
+    @like.each(&:destroy)
     @post.destroy
 
     respond_to do |format|
