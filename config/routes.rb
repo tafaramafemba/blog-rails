@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       devise_for :users, :skip => [:registrations, :passwords, :confirmations ]
       resources :posts, only: [:index]
-    resources :comments, only: [:index, :create]
+      resources :comments, only: [:index, :create]
     end
   end
   

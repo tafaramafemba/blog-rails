@@ -2,7 +2,7 @@ module Api
   module V1
     class CommentsController < ApplicationController
       def index
-        @comments = Comment.where(post_id: params[:post_id]).where(user_id: params[:user_id]).order(:created_at)
+        @comments = Comment.order('created_at DESC')
         render json: {
           success: true, message: 'Successfully loaded comments', data: { comments: @comments }
         }
